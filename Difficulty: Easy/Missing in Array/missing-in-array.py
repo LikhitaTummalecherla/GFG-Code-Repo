@@ -1,19 +1,9 @@
-#User function Template for python3
 class Solution:
-    def missingNumber(self, arr):
-        # code here
-        arr.sort()
-        k=1
-        for i in range(len(arr)):
-            flag=False
-            if arr[i]==k:
-                flag=True
-            if not flag:
-                return k
-            k+=1
-        return k
-        
-
+    def missingNum(self, arr):
+        n = len(arr) + 1  
+        total = n * (n + 1) // 2
+        actual_sum = sum(arr)
+        return total - actual_sum
 
 #{ 
  # Driver Code Starts
@@ -22,7 +12,7 @@ class Solution:
 t = int(input())
 for _ in range(0, t):
     arr = list(map(int, input().split()))
-    s = Solution().missingNumber(arr)
+    s = Solution().missingNum(arr)
     print(s)
 
     print("~")
